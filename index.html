@@ -9,6 +9,28 @@
     	<script src="aframe-ar.js"></script>
 		<script src="aframe-extras.js"></script>
 		<link rel="stylesheet" href="styles.css">
+		<script>
+		AFRAME.registerComponent('my-camera-handler', {
+			init:function(){
+				const modelEntity = document.getElementById('my-gltf-model');
+				modelEntity.addEventListener('model-loaded', ()=>{
+					const modelObject3D = modelEntity.object3D;
+					const gltfData = modelObject3D.children.find(obj => obj.type === 'Group').gltf;
+					const modelCamera = gltfData.cameras[0];
+
+					if(modelCamera){
+						const sceneEl = document.querySelector('a-scene');
+						sceneEl.camera = modelCamera;
+						if(sceneEl.hasAttribute('look-controls')){
+							sceneEl.components['look-controls'].dolly.position.copy(modelCamera.position);
+							sceneEl.components['look-controls'].target.copy(modelCamera.position.clone().add(new THREE.Vector3(0,0,-1)));
+							sceneEl.components['look-controls'].update();
+						}
+					}
+				});
+			}
+		});		
+	</script>
 	</head>
 		
 	<body style="margin : 0px; overflow: hidden;">
@@ -29,39 +51,12 @@
 		<a-entity id="my-gltf-model" gltf-model="#nave" scale="0.25 0.25 0.25" animation-mixer="clip:*;timeScale:0;" my-camera-handler></a-entity>
   </a-scene>
 </body>
-	
 	<script>
 		let modelo3d= document.getElementById("modelo_nave");
-		AFRAME.registerComponent('my-camera-handler', {
-			init:function(){
-				const modelEntity = document.getElementById('my-gltf-model');
-				modelEntity.addEventListener('model-loaded', ()=>{
-					const modelObject3D = modelEntity.object3D;
-					const gltfData = modelObject3D.children.find(obj => obj.type === 'Group').gltf;
-					const modelCamera = gltfData.cameras[0];
-
-					if(modelCamera){
-						const sceneEl = document.querySelector('a-scene');
-						sceneEl.camera = modelCamera;
-						if(sceneEl.hasAttribute('look-controls')){
-							sceneEl.components['look-controls'].dolly.position.copy(modelCamera.position);
-							sceneEl.components['look-controls'].target.copy(modelCamera.position.clone().add(new THREE.Vector3(0,0,-1)));
-							sceneEl.components['look-controls'].update();
-						}
-					}
-				});
-			}
-		});
 function funcion_play()
 {
 	modelo3d.setAttribute('animation-mixer','clip:*;timeScale: 0.1;');
 	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },24000);/*retardo de 6000ms*/
 }
-		
 	</script>
 </html>
-
-
-
-
-
