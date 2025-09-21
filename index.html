@@ -1,0 +1,45 @@
+<!doctype html>
+<!--animación de nave espacial-->
+<html lang="en-US">
+	<head>
+	<meta charset="utf-8"/> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<script src="aframe-v1.7.1.min.js"></script>
+    	<script src="aframe-ar.js"></script>
+		<script src="aframe-extras.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+		
+	<body style="margin : 0px; overflow: hidden;">
+	<div class="buttons">
+ 	 <button id="boton" class="button" type="button" onclick="funcion_play()">Reproducir</button>
+	</div>
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true">
+      <a-assets>
+        <a-asset-item id="nave" src="starship_anim.glb">
+        </a-asset-item>
+      </a-assets>
+
+        <a-entity id="modelo_nave" gltf-model="#nave" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25" animation-mixer="clip:volar;timeScale:0;">
+        </a-entity>
+      <a-entity position="0 1 10" camera></a-entity>
+
+	<!--<a-light type="directional" color="white" position="0 0 -1"></a-light>
+	<a-light type="directional" color="white" position="0 0.5 0"></a-light>
+  	<a-light id="dirlight" type="directional" intensity="0.6" color="white" position="0 1 0"></a-light>
+  	<a-light type="directional" color="white" position="0 0 1"></a-light>-->
+  </a-scene>
+</body>
+	
+	<script>
+		let modelo3d= document.getElementById("modelo_nave");
+
+function funcion_play()
+{
+	modelo3d.setAttribute('animation-mixer','clip:volar;timeScale: 0.1;');
+	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },24000);/*retardo de 6000ms*/
+}
+	</script>
+</html>
+
