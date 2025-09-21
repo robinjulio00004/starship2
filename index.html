@@ -23,12 +23,7 @@
 
         <a-entity id="modelo_nave" gltf-model="#nave" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25" animation-mixer="clip:volar;timeScale:0;">
         </a-entity>
-      <a-entity position="0 1 10" camera></a-entity>
-
-	<!--<a-light type="directional" color="white" position="0 0 -1"></a-light>
-	<a-light type="directional" color="white" position="0 0.5 0"></a-light>
-  	<a-light id="dirlight" type="directional" intensity="0.6" color="white" position="0 1 0"></a-light>
-  	<a-light type="directional" color="white" position="0 0 1"></a-light>-->
+      <a-entity position="0 1 10" camera camera-track></a-entity>
   </a-scene>
 </body>
 	
@@ -40,6 +35,12 @@ function funcion_play()
 	modelo3d.setAttribute('animation-mixer','clip:volar;timeScale: 0.1;');
 	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },24000);/*retardo de 6000ms*/
 }
+		AFRAME.registerComponent('camera-track', {
+			tick: function(time,delta){
+				const cameraObject =this.el.object3D;
+				const position = cameraObject.position;
+				const rotation = cameraObject.rotation;
+			}
+		});
 	</script>
 </html>
-
