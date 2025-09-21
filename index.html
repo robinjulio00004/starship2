@@ -26,7 +26,7 @@
         </a-entity>
 		<a-entity look-controls position="0 0 0" camera></a-entity>
 		</a-entity>-->
-		<a-gltf-model src="#nave" scale="0.25 0.25 0.25" animation-mixer="clip:*;timeScale:0;" gltf-camera="node: Camera"></a-gltf-model>
+		<a-entity gltf-model src="#nave" scale="0.25 0.25 0.25" animation-mixer="clip:*;timeScale:0;" gltf-camera="node: Camera"></a-entity>
   </a-scene>
 </body>
 	
@@ -35,10 +35,11 @@
 
 function funcion_play()
 {
-	modelo3d.setAttribute('animation-mixer','clip:*;timeScale: 0.3;');
+	modelo3d.setAttribute('animation-mixer','clip:*;timeScale: 0.1;');
 	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },24000);/*retardo de 6000ms*/
 }
 	</script>
 </html>
+
 
 
