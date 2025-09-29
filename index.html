@@ -46,9 +46,12 @@ function funcion_play()
 	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
 	if(mixerComponent && mixerComponent.mixer)
     {
-      const clipName = mixerComponent.data.clip;
-      const action = mixerComponent.mixer.clipAction(clipName);
-      action.reset();
+      /*const clipName = mixerComponent.data.clip;*/
+	  const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
+	  const clipName2 = modelo3d.animations.find((clip)=>clip.name==='ArmatureAction');
+      const action1 = mixerComponent.mixer.clipAction(clipName1);
+      action1.reset();
+	  action2.reset();
     }
 }
 	</script>
