@@ -29,9 +29,17 @@
 </body>
 	<script>
 		let modelo3d= document.getElementById("modelo_nave");
+		const mixerComponent = modelo3d.components['animation-mixer'];
 function funcion_play()
 {
-	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;startAt:0;timeScale: 0.3;clampWhenFinished:false');
+	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
+	if(mixerComponent && mixerComponent.mixer)
+    {
+      const clipName = mixerComponent.data.clip;
+      const action = mixerComponent.mixer.clipAction(clipName);
+      action.reset();
+    }
+	
 }
 	</script>
 </html>
