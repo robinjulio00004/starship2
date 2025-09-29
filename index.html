@@ -42,7 +42,7 @@
 	});
 		modelo3d.addEventListener('animation-finished',()=>{
 		const mixerComponent = modelo3d.components['animation-mixer'];
-		mixerComponent.mixer.stopAllAction();
+		mixerComponent.data.clip.reset();
   //modelo3d.setAttribute('animation-mixer','timeScale:0');
   //console.log("anim terminada")
 });//finished
@@ -54,7 +54,7 @@ function funcion_play()
     {
       /*const clipName = mixerComponent.data.clip;
 	  const action = mixerComponent.mixer.clipAction(clipName);*/
-	  //mixerComponent.mixer.stopAllAction();
+	  //mixerComponent.data.clip.reset();
 	  //console.log("click actions")
 	  /*const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
 	  const clipName2 = modelo3d.animations.find((clip)=>clip.name==='ArmatureAction');
