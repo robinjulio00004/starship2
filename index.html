@@ -43,7 +43,7 @@
 function funcion_play()
 {
 	const mixerComponent = modelo3d.components['animation-mixer'];
-	modelo3d.setAttribute('animation-mixer','clip:CameraAction;loop:once;timeScale: 0.3;clampWhenFinished:false');
+	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
 	if(mixerComponent && mixerComponent.mixer)
     {
       const clipName = mixerComponent.data.clip;
