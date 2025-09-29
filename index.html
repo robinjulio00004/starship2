@@ -44,20 +44,20 @@ function funcion_play()
 {
 	const mixerComponent = modelo3d.components['animation-mixer'];
 	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
-	//if(mixerComponent && mixerComponent.mixer)
-    //{
+	if(mixerComponent && mixerComponent.mixer)
+    {
       /*const clipName = mixerComponent.data.clip;
-	  const action = mixerComponent.mixer.clipAction(clipName);
-	  */
-	  const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
+	  const action = mixerComponent.mixer.clipAction(clipName);*/
+	  mixerComponent.mixer.stopAllActionas();
+	  /*const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
 	  const clipName2 = modelo3d.animations.find((clip)=>clip.name==='ArmatureAction');
       const action1 = mixer.clipAction(clipName1);
 	  const action2 = mixer.clipAction(clipName2);
 	console.log("anim1",clipName1)
 	console.log("anim2",clipName2)
       action1.reset();
-	  action2.reset();
-   // }
+	  action2.reset();*/
+    }
 }
 	</script>
 </html>
