@@ -30,7 +30,8 @@
 	<script>
 		let modelo3d= document.getElementById("modelo_nave");
 		const scene = document.querySelector('a-scene');
-		const camera = null, mesh,gltf_camera;
+		const camera = null;
+		const mesh,gltf_camera;
 		
 		modelo3d.addEventListener('model-loaded',()=>{
 		mesh = modelo3d.getObject3D('mesh');
@@ -58,3 +59,4 @@ function funcion_play()
 }
 	</script>
 </html>
+
