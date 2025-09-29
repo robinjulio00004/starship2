@@ -29,6 +29,15 @@
 </body>
 	<script>
 		let modelo3d= document.getElementById("modelo_nave");
+		const scene = document.querySelector('a-scene');
+		var camera = null;
+		const mesh = modelo3d.getObject3D('mesh');
+  		mesh.traverse(node=>{
+   			if(node.isMesh){
+      const gltf_camera = mesh.getObjectByName('camara_1');
+      scene.camera=gltf_camera;
+			}
+		});
 		
 function funcion_play()
 {
