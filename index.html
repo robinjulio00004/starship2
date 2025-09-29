@@ -53,7 +53,7 @@ function funcion_play()
 	  	action2.reset();*/
   //modelo3d.setAttribute('animation-mixer','timeScale:0');
   //console.log("anim terminada")
-});//finished
+//});//finished
 	if(mixerComponent && mixerComponent.mixer)
     {
       /*const clipName = mixerComponent.data.clip;*/
@@ -61,6 +61,8 @@ function funcion_play()
 	  const action2 = mixerComponent.mixer.clipAction('ArmatureAction');
 	  console.log("anim1",action1)
 	  console.log("anim2",action2)
+	  action1.reset();
+	  action2.reset();
 	  //mixerComponent.data.clip.reset();
 	  //console.log("click actions")
 	  /*const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
@@ -75,4 +77,3 @@ function funcion_play()
 }
 	</script>
 </html>
-
