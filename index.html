@@ -40,16 +40,22 @@
 			}
 		});
 	});
+		modelo3d.addEventListener('animation-finished',()=>{
+		const mixerComponent = modelo3d.components['animation-mixer'];
+		mixerComponent.mixer.stopAllAction();
+  //modelo3d.setAttribute('animation-mixer','timeScale:0');
+  //console.log("anim terminada")
+});//finished
 function funcion_play()
 {
-	const mixerComponent = modelo3d.components['animation-mixer'];
+	//const mixerComponent = modelo3d.components['animation-mixer'];
 	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
 	if(mixerComponent && mixerComponent.mixer)
     {
       /*const clipName = mixerComponent.data.clip;
 	  const action = mixerComponent.mixer.clipAction(clipName);*/
-	  mixerComponent.mixer.stopAllAction();
-		console.log("click actions")
+	  //mixerComponent.mixer.stopAllAction();
+	  //console.log("click actions")
 	  /*const clipName1 = modelo3d.animations.find((clip)=>clip.name==='CameraAction');
 	  const clipName2 = modelo3d.animations.find((clip)=>clip.name==='ArmatureAction');
       const action1 = mixer.clipAction(clipName1);
@@ -62,4 +68,3 @@ function funcion_play()
 }
 	</script>
 </html>
-
