@@ -33,7 +33,6 @@
 		const camera = null;
 		
 		modelo3d.addEventListener('model-loaded',()=>{
-		//const mesh ,gltf_camera;
 		const mesh = modelo3d.getObject3D('mesh');
   		mesh.traverse(node=>{
    			if(node.isMesh){
@@ -46,13 +45,13 @@
 function funcion_play()
 {
 	const mixerComponent = modelo3d.components['animation-mixer'];
-	const action1, action2;
+	
 	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
 	
 	if(mixerComponent && mixerComponent.mixer)
     {
-	  action1 =  mixerComponent.mixer.clipAction('CameraAction');
-	  action2 =  mixerComponent.mixer.clipAction('ArmatureAction');
+	  const action1 =  mixerComponent.mixer.clipAction('CameraAction');
+	  const action2 =  mixerComponent.mixer.clipAction('ArmatureAction');
 	  action1.reset();
 	  action2.reset();
     }
