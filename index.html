@@ -31,9 +31,9 @@
 		let modelo3d= document.getElementById("modelo_nave");
 		const scene = document.querySelector('a-scene');
 		const camera = null;
-		const mesh,gltf_camera;
 		
 		modelo3d.addEventListener('model-loaded',()=>{
+		const mesh ,gltf_camera;
 		mesh = modelo3d.getObject3D('mesh');
   		mesh.traverse(node=>{
    			if(node.isMesh){
