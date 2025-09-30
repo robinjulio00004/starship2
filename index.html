@@ -45,18 +45,17 @@
 
 function funcion_play()
 {
-	/*const mixerComponent = modelo3d.components['animation-mixer'];*/
+	const mixerComponent = modelo3d.components['animation-mixer'];*/
 	const action1, action2;
 	modelo3d.setAttribute('animation-mixer','clip:*;loop:once;timeScale: 0.3;clampWhenFinished:false');
 	
-	//if(mixerComponent && mixerComponent.mixer)
-   // {
-	  action1 =  modelo3d.components['animation-mixer'].mixer.clipAction('CameraAction');
-	  action2 =  modelo3d.components['animation-mixer'].mixer.clipAction('ArmatureAction');
+	if(mixerComponent && mixerComponent.mixer)
+    {
+	  action1 =  mixerComponent.mixer.clipAction('CameraAction');
+	  action2 =  mixerComponent.mixer.clipAction('ArmatureAction');
 	  action1.reset();
 	  action2.reset();
-    //}
+    }
 }
 	</script>
 </html>
-
